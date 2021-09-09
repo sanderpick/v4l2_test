@@ -75,8 +75,8 @@ static void store_image(const char *buf_start, int size, int index)
 {
 	char path[20];
 
-	snprintf(path, sizeof(path), "./uyvy%d.uyvy", index);
-	int fd = open(path, O_WRONLY|O_CREAT, 00700);
+	snprintf(path, sizeof(path), "./test%d.jpg", index);
+	int fd = open(path, O_WRONLY|O_CREAT, 00777);
 	if (-1 == fd) {
 		fprintf(stderr, "Cannot open '%s': %d, %s\n",
 			path, errno, strerror(errno));

@@ -74,8 +74,9 @@ static void process_image(const void *p, int size)
 static void store_image(const char *buf_start, int size, int index)
 {
 	char path[20];
+	char *st = strstr(dev_name, "video");
 
-	snprintf(path, sizeof(path), "./test%d.jpg", index);
+	snprintf(path, sizeof(path), "./test%s.jpg", st);
 	int fd = open(path, O_WRONLY|O_CREAT, 00777);
 	if (-1 == fd) {
 		fprintf(stderr, "Cannot open '%s': %d, %s\n",

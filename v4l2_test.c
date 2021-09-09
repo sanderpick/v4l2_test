@@ -76,7 +76,7 @@ static void store_image(const char *buf_start, int size, int index)
 	char path[20];
 	char *st = strstr(dev_name, "video");
 
-	snprintf(path, sizeof(path), "./test%s.jpg", st);
+	snprintf(path, sizeof(path), "./%d-test%s.jpg", index, st);
 	int fd = open(path, O_WRONLY|O_CREAT, 00777);
 	if (-1 == fd) {
 		fprintf(stderr, "Cannot open '%s': %d, %s\n",
